@@ -1,0 +1,28 @@
+minimum_cumulusci_version: '3.88.0'
+project:
+    name: baybridgemint
+    package:
+        name: baybridgemint
+        api_version: '60.0'
+    git:
+        default_branch: 'main'
+        prefix_feature: 'feature/'
+        prefix_beta: 'beta/'
+        prefix_release: 'release/'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/baybridgemint/tests
+            options:
+                outputdir: robot/baybridgemint/results
+
+    robot_testdoc:
+        options:
+            path: robot/baybridgemint/tests
+            output: robot/baybridgemint/doc/baybridgemint_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
