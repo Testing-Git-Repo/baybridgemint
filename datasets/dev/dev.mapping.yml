@@ -1,0 +1,139 @@
+# Editing this file is usually not recommended because it will
+# be overwritten the next time you re-capture this data.
+#
+# You can change this file's contents permanently by creating a
+# .load.yml file and re-capturing:
+#
+#  https://cumulusci.readthedocs.io/en/stable/data.html#extracting-and-loading-sample-datasets
+Insert Account:
+  sf_object: Account
+  table: Account
+  fields:
+  - Name
+Insert Individual:
+  sf_object: Individual
+  table: Individual
+  fields:
+  - LastName
+Insert DandBCompany:
+  sf_object: DandBCompany
+  table: DandBCompany
+  fields:
+  - DunsNumber
+  - Name
+Insert Lead:
+  sf_object: Lead
+  table: Lead
+  fields:
+  - LastName
+  - FirstName
+  - Salutation
+  - Title
+  - Company
+  - Street
+  - City
+  - State
+  - PostalCode
+  - Country
+  - Latitude
+  - Longitude
+  - GeocodeAccuracy
+  - Phone
+  - MobilePhone
+  - Fax
+  - Email
+  - Website
+  - Description
+  - LeadSource
+  - Status
+  - Industry
+  - Rating
+  - AnnualRevenue
+  - NumberOfEmployees
+  - HasOptedOutOfEmail
+  - IsConverted
+  - IsUnreadByOwner
+  - DoNotCall
+  - HasOptedOutOfFax
+  - Jigsaw
+  - CleanStatus
+  - CompanyDunsNumber
+  - Pronouns
+  - GenderIdentity
+  lookups:
+    DandbCompanyId:
+      table:
+      - DandBCompany
+      key_field: DandbCompanyId
+    IndividualId:
+      table:
+      - Individual
+      key_field: IndividualId
+Insert Contact:
+  sf_object: Contact
+  table: Contact
+  fields:
+  - LastName
+  - FirstName
+  - Salutation
+  - OtherStreet
+  - OtherCity
+  - OtherState
+  - OtherPostalCode
+  - OtherCountry
+  - OtherLatitude
+  - OtherLongitude
+  - OtherGeocodeAccuracy
+  - MailingStreet
+  - MailingCity
+  - MailingState
+  - MailingPostalCode
+  - MailingCountry
+  - MailingLatitude
+  - MailingLongitude
+  - MailingGeocodeAccuracy
+  - Phone
+  - Fax
+  - MobilePhone
+  - HomePhone
+  - OtherPhone
+  - AssistantPhone
+  - Email
+  - Title
+  - Department
+  - AssistantName
+  - LeadSource
+  - Birthdate
+  - Description
+  - HasOptedOutOfEmail
+  - HasOptedOutOfFax
+  - DoNotCall
+  - EmailBouncedReason
+  - EmailBouncedDate
+  - Jigsaw
+  - CleanStatus
+  - Pronouns
+  - GenderIdentity
+  lookups:
+    AccountId:
+      table:
+      - Account
+      key_field: AccountId
+    ReportsToId:
+      table:
+      - Contact
+      key_field: ReportsToId
+      after: Insert Contact
+    IndividualId:
+      table:
+      - Individual
+      key_field: IndividualId
+Insert Event:
+  sf_object: Event
+  table: Event
+  lookups:
+    WhoId:
+      table:
+      - Contact
+      - Lead
+      key_field: WhoId
